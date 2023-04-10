@@ -27,7 +27,7 @@ const registerController = async (req, res) => {
       });
     } else {
       user.userPicturePath =
-        "http://localhost:8080/public/assets/unknownProfilePicture.png";
+        "https://yodm-server.onrender.com/public/assets/unknownProfilePicture.png";
       const savedUser = await user.save();
       res.status(200).json(savedUser);
     }
