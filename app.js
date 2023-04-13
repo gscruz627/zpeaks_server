@@ -29,10 +29,13 @@ app.use(morgan("common"));
 app.use(bodyParser.json( { limit: "50mb", extended: true}));
 app.use(bodyParser.urlencoded( { limit: "50mb", extended: true}));
 app.use(express.static("public/assets"));
+const cloudName = process.env.CLOUDINARY_CLOUD_NAME;
+const cloudApiKey = process.env.CLOUDINARY_API_KEY;
+const cloudApiSecret = process.env.CLOUDINARY_API_SECRET;
 cloudinary.config({
-    cloud_name: "drhxsbeef",
-    api_key: "741999597212787",
-    api_secret: "vsRItW9JSgBIz9g5yInkJErX6sg"
+    cloud_name: cloudName,
+    api_key: cloudApiKey,
+    api_secret: cloudApiSecret
 });
 const upload = multer({
     storage: multer.memoryStorage()
