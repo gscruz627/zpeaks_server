@@ -47,7 +47,6 @@ function uploadImage(imageBuffer){
             reject(error)
             console.error(error);
           } else {
-            console.log(result);
             resolve(result.secure_url)
           }
         }).end(imageBuffer);

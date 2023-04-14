@@ -93,7 +93,6 @@ const getFollowingController = async (req, res) => {
     const following = rawFollowing.map(({ _id, username, userPicturePath }) => {
       return { _id, username, userPicturePath };
     });
-    console.log(following);
     res.status(200).json(following);
   } catch (err) {
     res.status(500).json({ err: "Server error, with message: " + err });
@@ -152,7 +151,6 @@ const userDeleteController = async (req, res) => {
   try {
     if (req.user) {
       const { id } = req.body;
-      console.log(id);
       const user = await User.find({_id: id});
 
       if (!user) {
@@ -182,7 +180,6 @@ const changeUsernameController = async (req, res) => {
   try {
     const { newUsername, userId } = req.body;
     const user = await User.findById(userId);
-    console.log(user);
     user.username = newUsername;
     const savedUser = await user.save();
     res.status(200).json(savedUser);

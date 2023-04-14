@@ -1025,7 +1025,6 @@ const deleteStoryController = async (req, res) => {
       });
     }
   } catch (err) {
-    console.log("500");
     res
       .status(500)
       .json({ err: "Error on delete story, cannot delete: " + err });
